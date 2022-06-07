@@ -1,21 +1,21 @@
-# ID3: Intelligent Steel Surface Defect Detection System using Supervised and Unsupervised Learning Techniques
-The project was a part of the AME 505 course at USC. the objective of the project is to create an application to defect steel surface defects using supervised and unsupervised learning methods.
+# Cette application utilise des techniques d'apprentissage supervisées et non supervisées
+L'objectif du projet est de créer une application pour corriger les défauts de surface de l'acier en utilisant des méthodes d'apprentissage supervisées et non supervisées.
 
 ## Dependencies
-The following dependencies need to be installed before running the project.
-- [Docker](https://docs.docker.com/get-docker/) - framework for running the application on any platforms.
-- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) - Linux shell platform. (Only for Windows Users)
+Les dépendances suivantes doivent être installées avant d'exécuter le projet.
+- [Docker](https://docs.docker.com/get-docker/) - framework pour exécuter l'application sur toutes les plates-formes.
+- [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) - Linux shell platform. (Seulement pour les utilisateurs Windows)
 
 
 ## Installation
  
-Clone the master branch of the repository in your selected destination using 
+Clonez la branche master du repositorie de votre choix 
 
 ```bash
-git clone -b master https://github.com/jd509/USC-AME-505-ID3-Intelligent-Defect-Detection-System.git
+git clone -b master https://github.com/Morue/App_detection_defauts_industriels.git
 ```
 
-Source into the cloned folder and run the install.sh script to generate a docker image for the project.
+Source dans le dossier cloné et exécutez le script install.sh pour générer une image docker pour le projet.
 
 ```bash
 ./install.sh
@@ -24,27 +24,27 @@ This will generate the docker image with the necessary dependencies.
 
 ## Usage
 
-To run the application:
+Pour exécuter l'application :
 
-Run the launch_app.sh script.
+Exécutez le script launch_app.sh.
 ```bash
 ./launch_app.sh
 ```
-This will start a docker container with the name "defect_detector" which will load and run the application. 
+Cela démarrera un conteneur docker avec le nom "defect_detector" qui chargera et exécutera l'application.
 
-![User Interface for ID3](https://github.com/jd509/USC-AME-505-ID3-Intelligent-Defect-Detection-System/blob/master/images/user_interface_entrypoint.png)
+![User Interface for ID3](https://github.com/Morue/App_detection_defauts_industriels/blob/main/images/user_interface_entrypoint.png)
 
-The user can specify the input values for all the machine learning models and train the models individually.
+L'utilisateur peut spécifier les valeurs d'entrée pour tous les modèles d'apprentissage automatique et former les modèles individuellement.
 
-To read further about these models:
+Pour en savoir plus sur ces modèles :
 
 ### Feature Extraction Methods:
 
 - [Grey-Level Co-occurence Matrix](https://scikit-image.org/docs/dev/auto_examples/features_detection/plot_glcm.html
-) - Feature extraction method using GLCM algorithm.
+) - Méthode d'extraction de caractéristiques utilisant l'algorithme GLCM.
 
 - [Local Binary Patterns + Grey-Level Co-occurence Matrix](https://towardsdatascience.com/face-recognition-how-lbph-works-90ec258c3d6b
-) - Feature extraction method using LBGLCM algorithm.
+) - Méthode d'extraction de caractéristiques utilisant l'algorithme LBGLCM.
 
 ### Machine Learning Models:
 
@@ -56,35 +56,32 @@ To read further about these models:
 
 - [Convolutional Neural Networks](https://www.tensorflow.org/tutorials/images/cnn)
 
-The training results can be viewed on the user interface after all the models have been trained.
+Les résultats de la formation peuvent être visualisés sur l'interface utilisateur une fois que tous les modèles ont été formés.
 
-![Sample Training Results for Machine Learning Models](https://github.com/jd509/USC-AME-505-ID3-Intelligent-Defect-Detection-System/blob/master/images/sample_accuracy_results.png)
+![Exemples de résultats de formation pour les modèles d'apprentissage automatique](https://github.com/jd509/USC-AME-505-ID3-Intelligent-Defect-Detection-System/blob/master/images/sample_accuracy_results.png)
 
-Post-training, the user interface can be used to predict the classification label for a given image and identify the defect associated with it.
+Après la formation, l'interface utilisateur peut être utilisée pour prédire l'étiquette de classification d'une image donnée et identifier le défaut qui lui est associé.
 
 ![Defect Predictor](https://github.com/jd509/USC-AME-505-ID3-Intelligent-Defect-Detection-System/blob/master/images/defect_prediction.png)
 
 
-## Inside the Repo
+## À l'intérieur du dépôt
 
-The repository contains python scripts to train and test the model. It also contains the dataset on which the model was trained.
+Le référentiel contient des scripts Python pour former et tester le modèle. Il contient également le jeu de données sur lequel le modèle a été formé.
 
 ### Scripts
-- train_machine_learning_models.py : Python script to train the models and extract features.
-- predict_defects.py : Python script to predict the defect for a single image using trained models.
-- user_interface.py : UI for interacting with the application.
+- train_machine_learning_models.py : Script Python pour former les modèles et extraire les fonctionnalités.
+- predict_defects.py : Script Python pour prédire le défaut d'une seule image à l'aide de modèles entraînés.
+- user_interface.py : Interface utilisateur pour interagir avec l'application.
 
-### Configuration Files
+### Fichiers de configuration
 - image_feature_extraction_config.json : JSON file for default parameters to extract features from training dataset
-- machine_learning_params.json : JSON file for default parameters to train the machine learning models
+- machine_learning_params.json : Fichier JSON pour les paramètres par défaut permettant d'extraire les fonctionnalités de l'ensemble de données d'entraînement
 ### Folders
-- train_dataset: Contains the dataset for six types of surface defects : Crazing, Inclusion, Patches, Pitted Surfaces, Scratches, Residues
-- test_dataset: Sample images to test the model
+- train_dataset: Contient l'ensemble de données pour six types de défauts de surface : Cracking, Inclusion, Patches, Pitted Surfaces, Scratches, Residues
+- test_dataset: Exemples d'images pour tester le modèle
   
-## Known Issues
-Currently, there are no known issues to run the application. However, if any issues have been found, please open an issue forum for the same
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Problèmes connus
+Actuellement, il n'y a aucun problème connu pour exécuter l'application. Toutefois, si des problèmes ont été détectés, veuillez ouvrir un forum de problèmes pour le même
+## Contribuant
+Les demandes d'extraction sont les bienvenues. Pour les modifications majeures, veuillez d'abord ouvrir un problème pour discuter de ce que vous souhaitez modifier.
